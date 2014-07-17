@@ -14,4 +14,4 @@ At Ifbyphone I worked on a Backbone.js application which acted as a dashboard fo
 Code can be viewed here.
 
 ##Additional jQuery work
-I developed a custom social media analytics platform utilizing the Twitter API and jQuery. It can be accessed at jsocialmedia.com - username:password is daniel:daniel - and the video (https://www.youtube.com/watch?v=BPCLizmQlf8) can walk you through the technology. The code itself is a few years old and is not up to my current standards, so I've have not included it in these code samples.
+I developed a custom social media analytics platform utilizing the Twitter API and jQuery. It can be accessed at http://jsocialmedia.com - username:password is daniel:daniel - and the [video](https://www.youtube.com/watch?v=BPCLizmQlf8) can walk you through the technology. The code itself is a few years old and is not up to my current standards, so I've have not included it in these code samples.
