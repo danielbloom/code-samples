@@ -10,7 +10,7 @@ View feature as branch
 
 
 ##Backbone.js
-I worked on a Backbone.js application which acted as a dashboard for call center managers. It asynchronously  displays the status of all call center workers. An dummy example can be viewed here () though production cases may have hundreds of employees active on the dashboard. The features that I primarily contributed are the ability to sort the agents by call priority, or by name alphabetically or reverse alphabetically. It is important to note that this was a legacy codebase using an older version of Backbone and as such does not 100% comply with current Backbone practices.
+I worked on a Backbone.js application which acted as a dashboard for call center managers. It asynchronously displays the status of all call center workers who are constantly changing status from Open/Closed/On Call etc. An dummy example can be viewed [here] (https://secure.ifbyphone.com/managerpanel.php?key=adc1bbaf0f133450c6eccd4b55a134284cdbfae9&usr_queue_id=31494) though production cases may have hundreds of employees active on the dashboard. The features that I primarily contributed are the ability to sort the agents by call priority, or by name alphabetically or reverse alphabetically. It is important to note that this was a legacy codebase using an older version of Backbone and as such does not 100% comply with current Backbone practices.
 Code can be viewed here.
 
 ##Additional jQuery work
