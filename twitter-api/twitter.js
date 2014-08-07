@@ -8,12 +8,12 @@ function setUrl() {
 
 $(document).ready(function() { 
 
-	setUrl();
+    setUrl();
 
     //generates shortcut URL via bitly API and attaches url to social sharing buttons
     $("#shareButton").click(function () {
         var long_url ="http://jsocialmedia.com/" + $("#filterSelectForm").attr("action");
-		long_url = encodeURIComponent(long_url);
+        long_url = encodeURIComponent(long_url);
 
         $("#sharePanel").css("display", "block");
         
@@ -26,7 +26,6 @@ $(document).ready(function() {
                 $("#share_url").val(data);
                 $("a.twitter-share-button").attr("href", "https://twitter.com/intent/tweet?text=" + encodeURIComponent("Check out this amazing info on #Jewishsocialmedia use") + "&url=" + encodeURIComponent(data));
                 $("a.facebook-share-button").attr("href", "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(data));
-
             },
             error: function () {
                 alert("error generating a shortcut url");
