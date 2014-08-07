@@ -1,106 +1,109 @@
-<?php 
-
-
-XXX Edited out code XXX ?>
+<?php /**
+*
+* managerPanel.php
+* NOTE: file has been edited for public dsiplay
+*
+*/
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Manager Control Panel - <?php echo XXXXX; ?></title>
-<link rel="stylesheet" href="css/calldist/grid_870_15.css"/>
-<link rel="stylesheet" href="css/calldist/manager_panel.css"/>
-<link rel="stylesheet" href="assets/css/jquery.selectBox.css"/>
+  <title>Manager Control Panel - <?php echo XXXXX; ?></title>
+  <link rel="stylesheet" href="css/calldist/grid_870_15.css"/>
+  <link rel="stylesheet" href="css/calldist/manager_panel.css"/>
+  <link rel="stylesheet" href="assets/css/jquery.selectBox.css"/>
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript">CLOSURE_NO_DEPS=true;</script>
-<script type="text/javascript">
-    var App = {};
-    App.account_id = <?php echo XXXXX; ?>;
-    App.distributor_id = <?php echo XXXXX; ?>;
-    App.queue_id = <?php echo XXXXX; ?>;
-    App.caller_id = <?php echo XXXXX; ?>;
-    App.cometUrl = 'https://push.ifbyphone.com/cometd';
-    App.cometChannel = <?php echo XXXXX; ?>;
-    App.monitoringEnabled = 0;
-    App.isReadOnly = 0;
-</script>
-<script src="js/calldist/manager_panel.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $('.show_tooltip1').hover(
-        function (event) {
-            $('#tooltip1').show().css({
-                top: event.pageY + 10,
-                left: event.pageX - 30
-            });
-        },
-        function () {
-            $('#tooltip1').hide();
-        }
-    );
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript">CLOSURE_NO_DEPS=true;</script>
+  <script type="text/javascript">
+      var App = {};
+      App.account_id = <?php echo XXXXX; ?>;
+      App.distributor_id = <?php echo XXXXX; ?>;
+      App.queue_id = <?php echo XXXXX; ?>;
+      App.caller_id = <?php echo XXXXX; ?>;
+      App.cometUrl = 'https://push.ifbyphone.com/cometd';
+      App.cometChannel = <?php echo XXXXX; ?>;
+      App.monitoringEnabled = 0;
+      App.isReadOnly = 0;
+  </script>
+  <script src="js/calldist/manager_panel.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.show_tooltip1').hover(
+          function (event) {
+              $('#tooltip1').show().css({
+                  top: event.pageY + 10,
+                  left: event.pageX - 30
+              });
+          },
+          function () {
+              $('#tooltip1').hide();
+          }
+      );
 
-    $('.show_tooltip2').hover(
-        function (event) {
-            $('#tooltip2').show().css({
-                top: event.pageY + 10,
-                left: event.pageX - 30
-            });
-        },
-        function () {
-            $('#tooltip2').hide();
-        }
-    );
+      $('.show_tooltip2').hover(
+          function (event) {
+              $('#tooltip2').show().css({
+                  top: event.pageY + 10,
+                  left: event.pageX - 30
+              });
+          },
+          function () {
+              $('#tooltip2').hide();
+          }
+      );
 
-    function resizeAgentList() {
-        $('#agent_list').css('height', $(window).innerHeight() - 300);
-    }
+      function resizeAgentList() {
+          $('#agent_list').css('height', $(window).innerHeight() - 300);
+      }
 
-    $(window).resize(resizeAgentList);
-    resizeAgentList();
+      $(window).resize(resizeAgentList);
+      resizeAgentList();
 
-    // open read only manager panel
-    $('#open_read_only').click( function() {
-        window.open('managerpanel.php?key=<?php echo XXXXX; ?>&usr_queue_id=<?php echo XXXXX; ?>', 'ReadOnlyPanel31494',
-                             'menubar=no,status=no,location=no,toolbar=no,width=885,height=545');
-    });
+      // open read only manager panel
+      $('#open_read_only').click( function() {
+          window.open('managerpanel.php?key=<?php echo XXXXX; ?>&usr_queue_id=<?php echo XXXXX; ?>', 'ReadOnlyPanel31494',
+                               'menubar=no,status=no,location=no,toolbar=no,width=885,height=545');
+      });
 
-    App.agent_list.reset([<?php echo XXXXX; ?>]);
-    App.Timer.trigger('tick');
+      App.agent_list.reset([<?php echo XXXXX; ?>]);
+      App.Timer.trigger('tick');
 
-    // handling of agent filtering on initial page load
-    var modes = App.filter.toJSON(),
-        filter_agent_modes = ["after_call_work","busy_work","open","outbound","break","busy_away","closed","lunch"],
-        set_mode = {};
+      // handling of agent filtering on initial page load
+      var modes = App.filter.toJSON(),
+          filter_agent_modes = ["after_call_work","busy_work","open","outbound","break","busy_away","closed","lunch"],
+          set_mode = {};
 
-    if(filter_agent_modes != 'all') {
+      if(filter_agent_modes != 'all') {
 
-        $.each(modes, function(mode, show) {
-            if ($.inArray(mode, filter_agent_modes) < 0) {
-                // hide mode
-                set_mode[mode] = false;
-            }
-        });
-        App.filter.set(set_mode);
-    }
+          $.each(modes, function(mode, show) {
+              if ($.inArray(mode, filter_agent_modes) < 0) {
+                  // hide mode
+                  set_mode[mode] = false;
+              }
+          });
+          App.filter.set(set_mode);
+      }
 
-    // hide filter select popup when clicking outside of it
-    $(document).mouseup(function (e) {
-        var $container = $("#agent_filter"),
-            $agent_filter_select = $("#agent_filter_select");
+      // hide filter select popup when clicking outside of it
+      $(document).mouseup(function (e) {
+          var $container = $("#agent_filter"),
+              $agent_filter_select = $("#agent_filter_select");
 
-        // if the target of the click isn't the container nor a descendant of the container
-        if (!$container.is(e.target)
-            && $container.has(e.target).length === 0
-            && $container.is(':visible'))
-        {
-            $container.hide();
-        } else if (($agent_filter_select.is(e.target) || $agent_filter_select.has(e.target).length !== 0) && $container.is(':hidden')) {
-            $container.show();
-        }
-    });
+          // if the target of the click isn't the container nor a descendant of the container
+          if (!$container.is(e.target)
+              && $container.has(e.target).length === 0
+              && $container.is(':visible'))
+          {
+              $container.hide();
+          } else if (($agent_filter_select.is(e.target) || $agent_filter_select.has(e.target).length !== 0) && $container.is(':hidden')) {
+              $container.show();
+          }
+      });
 
-});
-</script>
+  });
+  </script>
 </head>
 <body>
 
@@ -180,43 +183,43 @@ $(document).ready(function () {
   <tbody>
   <tr id="results_answered">
 		<td>Answered</td>
-		<td class="percent">&lt;1%</td>
-		<td class="time">0:00</td>
+		<td class="percent"><?php echo XXXXX; ?>%</td>
+		<td class="time"><?php echo XXXXX; ?></td>
 	</tr>
 	<tr id="results_hung_up">
 		<td>Hung Up</td>
-		<td class="percent">&lt;1%</td>
-		<td class="time">0:00</td>
+		<td class="percent"><?php echo XXXXX; ?>%</td>
+		<td class="time"><?php echo XXXXX; ?></td>
 	</tr>
 	<tr id="results_aborted">
 		<td>Opted Out</td>
-		<td class="percent">&lt;1%</td>
-		<td class="time">0:00</td>
+		<td class="percent"><?php echo XXXXX; ?></td>
+		<td class="time"><?php echo XXXXX; ?></td>
 	</tr>
 	<tr id="results_size_exceeded">
 		<td>Queue Full</td>
-		<td class="percent">&lt;1%</td>
-		<td class="time">0:00</td>
+		<td class="percent"><?php echo XXXXX; ?></td>
+		<td class="time"><?php echo XXXXX; ?></td>
 	</tr>
 	<tr id="results_time_exceeded">
 		<td>Time Exceeded</td>
-		<td class="percent">&lt;1%</td>
-		<td class="time">0:00</td>
+		<td class="percent"><?php echo XXXXX; ?></td>
+		<td class="time"><?php echo XXXXX; ?></td>
 	</tr>
 	<tr id="results_agents_closed">
 		<td>All Agents Closed</td>
-		<td class="percent">&lt;1%</td>
-		<td class="time">0:00</td>
+		<td class="percent"><?php echo XXXXX; ?></td>
+		<td class="time"><?php echo XXXXX; ?></td>
 	</tr>
   <tr id="results_callback_cancelled">
     <td>Callback Canceled</td>
-    <td class="percent">&lt;1%</td>
-    <td class="time">0:00</td>
+    <td class="percent"><?php echo XXXXX; ?></td>
+    <td class="time"><?php echo XXXXX; ?></td>
   </tr>
   <tr id="results_callback_completed">
     <td>Callback Completed</td>
-    <td class="percent">&lt;1%</td>
-    <td class="time">0:00</td>
+    <td class="percent"><?php echo XXXXX; ?></td>
+    <td class="time"><?php echo XXXXX; ?></td>
   </tr>
   </tbody>
   </table>
