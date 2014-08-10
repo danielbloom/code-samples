@@ -1,0 +1,56 @@
+
+<span class="profiletitle">Third Party Integrations</span>
+<div class="integrations">
+    <div class="salesforceIntegration">
+        <img src="assets/integrations/images/salesforce-logo.png" />
+        Integrate with your Salesforce organization
+        <?php if ($this->salesforce == 'Allow Access') : ?>
+        <a href="/integrations/index/disclaimer?app=Salesforce&height=180&width=540" title="Integration disclaimer" class="thickbox">
+        <?php endif; ?>
+    </div>
+
+    <div class="marinIntegration">
+        <img src="assets/integrations/images/marin-logo.png" />
+        Integrate SourceTrack with your Marin account
+
+        <?php if (!$this->hasSourcetrack2Access) : ?>
+            <p>The Marin integration is only available for those on the most current version of SourceTrack.<br>
+            Please contact your sales representative if you would like to discuss upgrading.<p>
+            <?php elseif (count($this->marinIntegrations) > 0) : ?>
+                <p><span>Current Integrations:</span></p>
+                <?php foreach ($this->marinIntegrations as $mar): ?>
+                    <p>
+                        <input type="button" class="marinRevoke" value="Delete" data-id="<?php echo $mar->usr_integration_transfer_credentials_id;?>" />
+                        <?php echo $this->sourceTrack2Sets[$mar->integration_key]; ?>
+                    </p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+        <?php if (!empty($this->marinSourceTrack2Available)): ?>
+        <div>
+            <span>Add SourceTrack Set:</span>
+            <select name="marinStId">
+                <?php foreach ($this->marinSourceTrack2Available as $id => $name): ?>
+                    <option value="<?php echo $id;?>"><?php echo $name;?></option>
+                <?php endforeach; ?>
+            </select>
+
+            FTP User Name: <input type="text" name="marinFtpName" value="" />
+            FTP Password: <input type="password" name="marinFtpPass" value="" />
+            Tracker Id: <input type="text" name="marinTrackerId" value="" />
+
+            <?php if (count($this->marinIntegrations) > 0) { ?>
+                <input type="button" value="Allow Access" name="marinAdd" onclick="addMarinIntegration()"/><img src="images/ajax-loader-pink.gif" class="loading">
+            <?php } else {
+                // if user currently has no Marin integrations, display disclaimer ?>
+                <a href="/integrations/index/disclaimer?app=Marin&height=180&width=540" title="Integration disclaimer" class="thickbox">
+                    <input type="button" value="Allow Access" name="marinAdd"/><img src="images/ajax-loader-pink.gif" class="loading">
+                </a>
+            <?php } ?>
+
+            <p class="integrationsError">FTP User Name, Password and Tracker Id are required</p>
+            <p class="integrationsCredError"></p>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>

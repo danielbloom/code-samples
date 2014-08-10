@@ -1,0 +1,10 @@
+<div>
+    <p>Do you want to continue?
+         <?php if ($this->app == 'Salesforce') { ?>
+             <input type="button" name="disclaimerAgree" value="Yes" onclick="tb_remove(); revokeAllowOauth('allow', 'salesforce')" />
+          <?php } elseif ($this->app == 'Kenshoo' || $this->app == 'Marin') { ?>
+              <input type="button" name="<?php echo $this->app;?>DisclaimerAgree" value="Yes" onclick="tb_remove(); add<?php echo $this->app;?>Integration();" />
+         <?php } ?>
+         <input type="button" name="<?php echo $this->app;?>DisclaimerCancel" value="No" onclick="tb_remove()" />
+     </p>
+ </div>
