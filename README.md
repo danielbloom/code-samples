@@ -1,7 +1,7 @@
 code-samples
 ============
-Some brief samples of some of my work in **PHP**, **jQuery**, **Backbone.js** and **MySQL**
-I have limited ability to post propriatary code. Please note that files have been edited.
+Some brief samples of some of my work in **PHP**, **jQuery**, **Backbone.js** and **MySQL**. 
+I have limited ability to post proprietary code. Please note that files have been edited.
 
 ##PHP and jQuery (plus MVC and grunt)
 I have limited ability to post propriatary code, but here is an partial example from a page in a web app where a user grants or revokes permission for the app to integrate with third party services. The front end uses jQuery and Grunt for task automation and asset management. Both the front and back end use versions of the Zend MVC structure.
