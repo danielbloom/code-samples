@@ -1,7 +1,11 @@
 code-samples
 ============
-Some brief samples of some of my work in **PHP**, **jQuery**, **Backbone.js** and **MySQL**. 
+Some brief samples of some of my work in **PHP**, **Java**, **jQuery**, **Backbone.js** and **MySQL**.
 I have limited ability to post proprietary code. Please note that files have been edited.
+
+##Java
+This is an Restlet API resource that provides patient data in json form to a React.js front end module. It retrieves data from the db using queryDSL, does a lot of post-processing, before converting the data to the format used by the front end. It uses Junit and Mockito for tests.
+View [Java code sample](https://github.com/danielbloom/code-samples/tree/master/java-Restlet-API)
 
 ##PHP and jQuery (plus MVC and grunt)
 I have limited ability to post propriatary code, but here is an partial example from a page in a web app where a user grants or revokes permission for the app to integrate with third party services. The front end uses jQuery and Grunt for task automation and asset management. Both the front and back end use versions of the Zend MVC structure.
@@ -19,5 +23,5 @@ Years ago I developed a custom social media analytics platform utilizing the Twi
 ## Some other features I built
 [Agent Panel Persistance](http://vimeo.com/85774075)
 
-[After Call Work mode](http://vimeo.com/82999970) This was a super tricky pull request with amost twenty files changed including changes to telephony controller logic, the Backbone.js manager panel and a heap of client and server side changes. 
+[After Call Work mode](http://vimeo.com/82999970) This was a super tricky pull request with amost twenty files changed including changes to telephony controller logic, the Backbone.js manager panel and a heap of client and server side changes.
 
